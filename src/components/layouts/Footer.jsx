@@ -1,9 +1,14 @@
-import React from "react";
-import { FaHeartbeat, FaGithub } from "react-icons/fa";
+import React from "react"
+import { FaHeartbeat, FaGithub } from "react-icons/fa"
+import "../../index.css"
+
 function Footer() {
   return (
-    <div className="container mx-auto">
-      <footer className="footer items-center p-4 bg-neutral text-neutral-content">
+    <div className=" container mx-auto">
+      <footer
+        style={{ backgroundColor: "black", borderRadius: " 15px 15px 0px 0px" }}
+        className="footer items-center p-4 bg-neutral text-neutral-content"
+      >
         <div className="items-center grid-flow-col">
           <FaGithub size={35} />
           <p>
@@ -48,7 +53,7 @@ function Footer() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

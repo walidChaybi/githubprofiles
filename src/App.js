@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import Navbar from "./components/layouts/Navbar"
+import Footer from "./components/layouts/Footer"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
+import { GithubProvider } from "./context/github/GithubContext"
+import User from "./pages/User"
 
 function App() {
-  const theme = document.querySelector("[data-theme]")
-  theme.dataset.theme = "cupcake"
   return (
-    <>
+    <GithubProvider>
       <Router>
         <div className="flex flex-col justify-between h-screen">
           <Navbar />
@@ -17,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/user/:id" element={<User />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
@@ -24,7 +25,7 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </>
+    </GithubProvider>
   )
 }
 
