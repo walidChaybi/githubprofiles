@@ -14,11 +14,7 @@ export const GithubProvider = ({ children }) => {
     const params = new URLSearchParams({
       q: text,
     })
-    const res = await fetch(`${GITHUB_URL}/search/users?${params}`, {
-      headers: {
-        Authorization: `bearer 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`,
-      },
-    })
+    const res = await fetch(`${GITHUB_URL}/search/users?${params}`)
     const { items } = await res.json()
     setUsers(items)
     setLoading(false)
@@ -28,11 +24,7 @@ export const GithubProvider = ({ children }) => {
   const fetchUser = async (login) => {
     setLoading(true)
 
-    const res = await fetch(`${GITHUB_URL}/users/${login}`, {
-      headers: {
-        Authorization: `bearer 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`,
-      },
-    })
+    const res = await fetch(`${GITHUB_URL}/users/${login}`)
     const user = await res.json()
     setUser(user)
     setLoading(false)
@@ -41,11 +33,7 @@ export const GithubProvider = ({ children }) => {
   const fetchUserRepo = async (user) => {
     setLoading(true)
 
-    const res = await fetch(`${GITHUB_URL}/users/${user}/repos`, {
-      headers: {
-        Authorization: `bearer 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`,
-      },
-    })
+    const res = await fetch(`${GITHUB_URL}/users/${user}/repos`)
     const data = await res.json()
     setRepos(data)
     setLoading(false)
