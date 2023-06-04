@@ -98,11 +98,7 @@ function User() {
                 <div className="stat p-3">
                   <div className="stat-title text-md ">Website</div>
                   <div className="text-sm stat-value">
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href={`https://${blog}`}
-                    >
+                    <a target="_blank" rel="noreferrer" href={`${blog}`}>
                       {blog}
                     </a>
                   </div>
